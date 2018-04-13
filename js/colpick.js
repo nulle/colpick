@@ -490,6 +490,16 @@
             },
             destroy: function () {
                 $('#' + $(this).data('colpickId')).remove();
+
+                // unbind all events
+                var doc = $(document);
+                doc.off('mouseup touchend', upHue);
+                doc.off('mousemove touchmove', moveHue);
+                doc.off('mouseup touchend', upSelector);
+                doc.off('mousemove touchmove', moveSelector);
+                doc.off('mouseup', upIncrement);
+                doc.off('mousemove', moveIncrement);
+                $('html').off('mousedown', hide);
             }
         };
     }();
