@@ -489,7 +489,11 @@
                 });
             },
             destroy: function () {
-                $('#' + $(this).data('colpickId')).remove();
+                var el = $(this);
+
+                $('#' + el.data('colpickId')).remove();
+
+                el.removeData('colpickId');
 
                 // unbind all events
                 var doc = $(document);
